@@ -1,0 +1,28 @@
+<!doctype html>
+<title>_local chat</title>
+<body>
+    <p>
+{% if name %}
+  hello {{ name }}.
+{% else %}
+  hello.
+{% endif %}
+    </p>
+
+
+{% if messages %}
+    {% for message in messages %}
+        <li>{{ message }}</li> 
+    {% endfor %}
+{% endif %}
+
+
+<form action="" method="post"> 
+    <p> 
+    <input type="text" name="newmessage">
+    </p> 
+    <p>
+        <input type="submit" value="_submit">
+    </p>
+</form> 
+</body> 
