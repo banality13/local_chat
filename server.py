@@ -25,7 +25,9 @@ def hello():
     name="_"
     if request.method=='POST' : 
         name = request.form.get("username")
-        return redirect(url_for('chatroom'))
+        res = redirect(url_for('chatroom'))
+        res.set_cookie('name', name)
+        return res
     if request.method=='GET' : 
         return render_template('index.html', name="")
     else : 
@@ -33,7 +35,7 @@ def hello():
 
 @app.route('/chatroom', methods=['post', 'get'])
 def chatroom(): 
-    name= usernames[1]
+    name = request.cookies.get('name')
     if request.method=="GET" : 
         return render_template('chatroom.html', name=name, messages=return_messages())
     if request.method=="POST":
