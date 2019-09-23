@@ -19,10 +19,16 @@
 
 <form action="" method="post"> 
     <p> 
-    <input type="text" name="newmessage">
+    <input type="text" name="newmessage" id='newmessage'>
     </p> 
     <p>
         <input type="submit" value="_submit">
     </p>
 </form> 
+
+    <script>
+        var input=document.getElementById('newmessage');
+        input.focus(); 
+        input.select(); 
+    </script>
 </body> 

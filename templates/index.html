@@ -9,10 +9,15 @@
 
 <form action="" method="post"> 
     <p> 
-    <input type="text" name="username">
+    <input type="text" name="username" id='username'>
     </p> 
     <p>
-        <input type="submit">
+        <input type="submit" value='_send'>
     </p>
 </form> 
+<script> 
+    var input=document.getElementById('username');
+    input.focus(); 
+    input.select(); 
+</script> 
 </body> 
