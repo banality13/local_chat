@@ -9,12 +9,10 @@
 {% endif %}
     </p>
 
+</div>
 
-{% if messages %}
-    {% for message in messages %}
-        <li>{{ message }}</li> 
-    {% endfor %}
-{% endif %}
+<div id='allmessages'> 
+</div> 
 
 
 <form action="" method="post"> 
@@ -26,9 +24,27 @@
     </p>
 </form> 
 
+<input id='click' type='button' value= 'click' onclick='updateMessages()' />
+
     <script>
         var input=document.getElementById('newmessage');
         input.focus(); 
         input.select(); 
+
+        
+    function updateMessages(){
+        var xhttp= new XMLHttpRequest(); 
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status==200){
+                document.getElementById('allmessages').innerHTML = this.responseText
+            }
+        }
+        xhttp.open("GET", 'getmessages', true); 
+        xhttp.send(); 
+
+    }
+
+    window.setInterval(updateMessages, 1000) ;
     </script>
 </body> 
+

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, abort, redirect, url_for
+from flask import Flask, render_template, request, abort, redirect, url_for, jsonify
 
 app = Flask(__name__)
 
@@ -10,7 +10,7 @@ def return_messages():
     messages=[]
     file_object = open(FILENAME, 'r')
     for line in file_object: 
-        messages.append(line)
+        messages.append("_" + line)
     file_object.close()
     return messages
 
@@ -46,3 +46,8 @@ def chatroom():
     else : 
         return render_template('chatroom.html', messages="error")
 
+
+@app.route('/getmessages', methods=['get'])
+def getmessages(): 
+    name = request.cookies.get('name')
+    return render_template('messages.html', messages=return_messages())
