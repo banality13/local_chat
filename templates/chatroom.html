@@ -3,9 +3,9 @@
 <body>
     <p>
 {% if name %}
-  hello {{ name }}.
+  _hello {{ name }}.
 {% else %}
-  hello.
+  _hello.
 {% endif %}
     </p>
 
@@ -23,8 +23,6 @@
         <input type="submit" value="_submit">
     </p>
 </form> 
-
-<input id='click' type='button' value= 'click' onclick='updateMessages()' />
 
     <script>
         var input=document.getElementById('newmessage');
@@ -44,7 +42,7 @@
 
     }
 
-    window.setInterval(updateMessages, 1000) ;
+    window.setInterval(updateMessages, 5000) ;
     </script>
 </body> 
 
